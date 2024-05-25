@@ -1,0 +1,18 @@
+# Ejemplo en Python 
+
+class BancoApp:
+    def __init__(self):
+        # Inicialización de la aplicación
+        self.saldo = 0.0
+
+    def consultar_saldo(self):
+        # Simulación de consulta al servidor o base de datos
+        # Aquí deberías obtener el saldo real del usuario
+        return self.saldo
+
+# Crear una instancia de la aplicación
+mi_app = BancoApp()
+
+# Consultar el saldo
+saldo_actual = mi_app.consultar_saldo()
+print(f"Tu saldo actual es: ${saldo_actual:.2f}")
