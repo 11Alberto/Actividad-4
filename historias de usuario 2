@@ -1,0 +1,33 @@
+# Ejemplo en Python 
+class ServicioApp:
+    def __init__(self):
+        # Inicialización de la aplicación
+        self.amigos = []
+
+    def invitar_amigos(self, amigos_seleccionados):
+        # Simulación de envío de invitaciones
+        # Aquí deberías implementar el envío real de invitaciones por correo o notificaciones
+        self.amigos.extend(amigos_seleccionados)
+        return "Invitaciones enviadas con éxito"
+
+    def confirmar_invitacion(self, amigo):
+        # Simulación de confirmación de invitación aceptada
+        if amigo in self.amigos:
+            return f"{amigo} ha aceptado la invitación"
+        else:
+            return f"{amigo} no ha sido invitado"
+
+# Crear una instancia de la aplicación
+mi_app = ServicioApp()
+
+# Simular selección de amigos para invitar
+amigos_seleccionados = ["Ana", "Carlos", "Elena"]
+
+# Enviar invitaciones
+resultado_invitacion = mi_app.invitar_amigos(amigos_seleccionados)
+print(resultado_invitacion)
+
+# Simular confirmación de invitación aceptada
+amigo_confirmado = "Carlos"
+confirmacion = mi_app.confirmar_invitacion(amigo_confirmado)
+print(confirmacion)
