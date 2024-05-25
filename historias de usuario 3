@@ -1,0 +1,40 @@
+# Ejemplo en Python 
+
+class OrganizadorTareas:
+    def __init__(self):
+        # Inicialización del organizador
+        self.tareas = []
+
+    def agregar_tarea(self, descripcion, prioridad):
+        # Agregar una nueva tarea a la lista
+        self.tareas.append({"descripcion": descripcion, "prioridad": prioridad})
+
+    def marcar_completada(self, indice):
+        # Marcar una tarea como completada
+        if 0 <= indice < len(self.tareas):
+            self.tareas[indice]["completada"] = True
+            return f"Tarea {indice} marcada como completada"
+        else:
+            return "Índice de tarea inválido"
+
+    def mostrar_tareas(self):
+        # Mostrar la lista de tareas ordenadas por prioridad
+        tareas_ordenadas = sorted(self.tareas, key=lambda x: x["prioridad"])
+        for i, tarea in enumerate(tareas_ordenadas):
+            print(f"{i}. {tarea['descripcion']} ({tarea['prioridad']})")
+
+# Crear una instancia del organizador
+mi_organizador = OrganizadorTareas()
+
+# Agregar tareas
+mi_organizador.agregar_tarea("Hacer la presentación", "alta")
+mi_organizador.agregar_tarea("Comprar víveres", "media")
+mi_organizador.agregar_tarea("Enviar informe", "alta")
+mi_organizador.agregar_tarea("Hacer ejercicio", "baja")
+
+# Marcar una tarea como completada
+mi_organizador.marcar_completada(1)
+
+# Mostrar la lista de tareas
+print("Lista de tareas:")
+mi_organizador.mostrar_tareas()
