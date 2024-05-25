@@ -1,0 +1,50 @@
+# Ejemplo en Python 
+class TiendaEnLinea:
+    def __init__(self):
+        # Inicialización de la tienda en línea
+        self.notificaciones_activas = True
+        self.pedidos = {}
+
+    def realizar_pedido(self, numero_pedido, fecha_estimada_entrega):
+        # Simulación de realizar un pedido
+        self.pedidos[numero_pedido] = {"estado": "pendiente", "fecha_estimada_entrega": fecha_estimada_entrega}
+        return f"Pedido {numero_pedido} realizado con éxito"
+
+    def enviar_notificacion(self, numero_pedido):
+        # Simulación de enviar una notificación de envío
+        if numero_pedido in self.pedidos:
+            self.pedidos[numero_pedido]["estado"] = "enviado"
+            return f"Notificación enviada para pedido {numero_pedido}: ¡Tu paquete está en camino!"
+        else:
+            return f"No se encontró el pedido {numero_pedido}"
+
+    def recibir_alerta_retraso(self, numero_pedido):
+        # Simulación de recibir una alerta por retraso
+        if numero_pedido in self.pedidos:
+            return f"Alerta: El pedido {numero_pedido} ha experimentado un retraso en el envío"
+        else:
+            return f"No se encontró el pedido {numero_pedido}"
+
+    def desactivar_notificaciones(self):
+        # Desactivar las notificaciones
+        self.notificaciones_activas = False
+        return "Notificaciones desactivadas"
+
+# Crear una instancia de la tienda en línea
+mi_tienda = TiendaEnLinea()
+
+# Realizar un pedido
+numero_pedido = 12345
+fecha_estimada_entrega = "2024-05-15"
+mi_tienda.realizar_pedido(numero_pedido, fecha_estimada_entrega)
+
+# Enviar notificación de envío
+notificacion_envio = mi_tienda.enviar_notificacion(numero_pedido)
+print(notificacion_envio)
+
+# Simular retraso en el envío
+alerta_retraso = mi_tienda.recibir_alerta_retraso(numero_pedido)
+print(alerta_retraso)
+
+# Desactivar notificaciones
+mi_tienda.desactivar_notificaciones()
