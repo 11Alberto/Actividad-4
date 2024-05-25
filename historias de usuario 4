@@ -1,0 +1,38 @@
+# Ejemplo en Python 
+    def __init__(self):
+        # Inicialización del gestor de progreso
+        self.equipo = {}
+
+    def agregar_miembro(self, nombre):
+        # Agregar un nuevo miembro al equipo
+        self.equipo[nombre] = {"tareas_completadas": 0, "tareas_pendientes": 0, "tareas_en_curso": 0}
+
+    def actualizar_progreso(self, nombre, tarea, estado):
+        # Actualizar el progreso de un miembro
+        if nombre in self.equipo:
+            self.equipo[nombre][estado] += 1
+            return f"Progreso actualizado para {nombre}: {estado} +1"
+        else:
+            return f"{nombre} no es miembro del equipo"
+
+    def mostrar_progreso(self):
+        # Mostrar el progreso de cada miembro
+        for nombre, datos in self.equipo.items():
+            print(f"{nombre}: Completadas {datos['tareas_completadas']} | Pendientes {datos['tareas_pendientes']} | En curso {datos['tareas_en_curso']}")
+
+# Crear una instancia del gestor
+mi_gestor = GestorProgreso()
+
+# Agregar miembros al equipo
+mi_gestor.agregar_miembro("Ana")
+mi_gestor.agregar_miembro("Carlos")
+mi_gestor.agregar_miembro("Elena")
+
+# Actualizar progreso de tareas
+mi_gestor.actualizar_progreso("Ana", "tareas_completadas", "tareas_completadas")
+mi_gestor.actualizar_progreso("Carlos", "tareas_pendientes", "tareas_pendientes")
+mi_gestor.actualizar_progreso("Elena", "tareas_en_curso", "tareas_en_curso")
+
+# Mostrar el progreso del equipo
+print("Progreso del equipo:")
+mi_gestor.mostrar_progreso()
